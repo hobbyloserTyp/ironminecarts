@@ -2,6 +2,7 @@ package de.ironminecarts;
 
 import com.gathertocraft.ironchest.blocks.ChestTypes;
 import com.gathertocraft.ironchest.screenhandlers.ChestScreenHandler;
+import java.lang.reflect.Field;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.EntityType;
@@ -26,11 +27,29 @@ public class TierMinecart extends AbstractMinecartContainer {
     public TierMinecart(EntityType<? extends TierMinecart> type, Level level, ChestTypes tier) {
         super(type, level);
         this.tier = tier;
-        this.stacks = NonNullList.withSize(tier.size(), ItemStack.EMPTY);
+        resetStacks();
     }
 
     public ChestTypes tier() {
         return tier;
+    }
+
+    /**
+     * Legt die Item-Liste in Kistengröße an und setzt sie AUCH in das private Feld der
+     * Vanilla-Oberklasse (sonst greifen Mods wie Lithium weiter auf die 36er-Liste zu).
+     */
+    private void resetStacks() {
+        this.stacks = NonNullList.withSize(tier.size(), ItemStack.EMPTY);
+        try {
+            for (Field f : AbstractMinecartContainer.class.getDeclaredFields()) {
+                if (f.getType() == NonNullList.class) {
+                    f.setAccessible(true);
+                    f.set(this, this.stacks);
+                }
+            }
+        } catch (ReflectiveOperationException | RuntimeException e) {
+            throw new IllegalStateException("Iron Minecarts: Inventar der Lore konnte nicht angelegt werden", e);
+        }
     }
 
     // --- Inventar: eigene Liste in Kistengröße statt der festen Vanilla-Liste ---
@@ -40,7 +59,9 @@ public class TierMinecart extends AbstractMinecartContainer {
     }
 
     public void clearItemStacks() {
-        this.stacks = NonNullList.withSize(tier.size(), ItemStack.EMPTY);
+        if (tier != null) {
+            resetStacks();
+        }
     }
 
     @Override
