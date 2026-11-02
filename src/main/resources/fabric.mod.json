@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "ironminecarts",
+  "version": "${version}",
+  "name": "Iron Minecarts",
+  "description": "Kistenloren mit der Kapazität der Iron-Chests-Kisten (Kupfer, Eisen, Gold, Diamant, Smaragd).",
+  "authors": ["Server-Eigenbau"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["de.ironminecarts.IronMinecarts"],
+    "client": ["de.ironminecarts.client.IronMinecartsClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "ironcore": ">=1.0.0",
+    "ironchest": ">=3.0.0"
+  }
+}

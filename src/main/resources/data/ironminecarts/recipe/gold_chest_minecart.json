@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "ironchest:gold_chest",
+    "minecraft:minecart"
+  ],
+  "result": {
+    "id": "ironminecarts:gold_chest_minecart",
+    "count": 1
+  }
+}

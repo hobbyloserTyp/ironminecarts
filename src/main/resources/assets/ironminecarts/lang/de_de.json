@@ -1,0 +1,12 @@
+{
+  "item.ironminecarts.copper_chest_minecart": "Kupferkisten-Lore",
+  "entity.ironminecarts.copper_chest_minecart": "Kupferkisten-Lore",
+  "item.ironminecarts.iron_chest_minecart": "Eisenkisten-Lore",
+  "entity.ironminecarts.iron_chest_minecart": "Eisenkisten-Lore",
+  "item.ironminecarts.gold_chest_minecart": "Goldkisten-Lore",
+  "entity.ironminecarts.gold_chest_minecart": "Goldkisten-Lore",
+  "item.ironminecarts.diamond_chest_minecart": "Diamantkisten-Lore",
+  "entity.ironminecarts.diamond_chest_minecart": "Diamantkisten-Lore",
+  "item.ironminecarts.emerald_chest_minecart": "Smaragdkisten-Lore",
+  "entity.ironminecarts.emerald_chest_minecart": "Smaragdkisten-Lore"
+}

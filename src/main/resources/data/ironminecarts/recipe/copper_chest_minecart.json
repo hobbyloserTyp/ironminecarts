@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "ironchest:copper_chest",
+    "minecraft:minecart"
+  ],
+  "result": {
+    "id": "ironminecarts:copper_chest_minecart",
+    "count": 1
+  }
+}
